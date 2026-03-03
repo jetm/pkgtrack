@@ -33,7 +33,7 @@ jobs:
 
       - name: Commit release
         run: |
-          git commit -am "Release v${{ github.event.inputs.version }}"
+          git diff --quiet && git diff --cached --quiet || git commit -am "Release v${{ github.event.inputs.version }}"
 
       - name: Tag release
         run: |
