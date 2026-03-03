@@ -1,0 +1,12 @@
+[Unit]
+Description=pkgtrack execution collector - traces all execve() calls via eBPF
+After=local-fs.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/execsnoop -T
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

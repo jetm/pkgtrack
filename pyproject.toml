@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pkgtrack"
+version = "0.1.0"
+description = "Track which Arch Linux packages you actually use via eBPF execution tracing"
+authors = [{name = "Javier Tia"}]
+license = "MIT"
+requires-python = ">=3.14"
+dependencies = [
+    "click>=8.1",
+    "rich>=13.0",
+]
+
+[project.scripts]
+pkgtrack = "pkgtrack.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
